@@ -3,20 +3,13 @@
 ## Instalation (Can ignore instruction as it has already been setup for you)
 ### GamersForge
 - Open Terminal
--
-    ```console
-        python sync.py
-    ```
+- ```python sync.py```
 ### OkapiLib
 - Open Integrated Terminal
--
-    ```console
-        pros c fetch okapilib@5.1.0.zip
-    ```
-- 
-    ```console
-        pros c apply okapilib
-    ```
+- ```pros c fetch okapilib@5.1.0.zip```
+- ```pros c apply okapilib```
+
+### EZ-Template
 
 ## Software
 ### GamersForge
