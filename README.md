@@ -2,15 +2,23 @@
 
 ## Instalation (Can ignore instruction as it has already been setup for you)
 ### GamersForge
+- Open Terminal
 -
     ```console
-    python sync.py
+        python sync.py
     ```
 ### OkapiLib
-
+- Open Integrated Terminal
+-
+    ```console
+        pros c fetch okapilib@5.1.0.zip
+    ```
+- 
+    ```console
+        pros c apply okapilib
+    ```
 
 ## Software
-
 ### GamersForge
 - [GamersForge](https://github.com/GamerVerse722/GamersForge)
 - [Wiki](https://github.com/GamerVerse722/GamersForge/wiki)
