@@ -15,6 +15,10 @@
     ```
 
 ### EZ-Template
+1. Extract EZ-Template-feature-pros-4.2.1.zip
+2. `mv EZ-Template-feature-pros-4.2.1/include/EZ-Template/ include/`
+3. `mv EZ-Template-feature-pros-4.2.1/src/EZ-Template/ src/`
+4. Delete EZ-Template-feature-pros-4.2.1/
 
 ## Software
 ### GamersForge
