@@ -1,6 +1,5 @@
 # Gamers Pros Template
-
-## Instalation (Can ignore instruction as it has already been setup for you)
+## Installation (Can ignore instruction as it has already been setup for you)
 ### GamersForge
 - Open Terminal
     ```console
