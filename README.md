@@ -1,5 +1,8 @@
 # Gamers Pros Template
+## Socials
 - Discord: [Gamer Verse Hangout](https://discord.gg/AjE6VMmRJ4)
+- Youtube: [Gamer Verse](https://www.youtube.com/@GamerVerse)
+- Github: [GamerVerse722](https://github.com/GamerVerse722)
 
 ## Installation (Can ignore instruction as it has already been setup for you)
 ### GamersForge
