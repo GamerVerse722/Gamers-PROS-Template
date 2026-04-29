@@ -36,3 +36,11 @@
 ### PROS
 - [PROS 4.2.2](https://github.com/purduesigbots/pros)
 - [Wiki](https://pros.cs.purdue.edu/v5/pros-4/index.html)
+
+### LVGL
+- [LVGL 9.2](https://github.com/lvgl/lvgl/tree/release/v9.2)
+- [Wiki](https://lvgl.io/docs/open/9.2/)
+
+### LVGL Image Converter
+- [LVGL Image Converter](https://lvgl.io/tools/imageconverter)
+- [Youtube Tutorial](https://youtu.be/TMcAzTsPj2w?si=xsbldqhULFpUovJw)
