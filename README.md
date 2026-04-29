@@ -1,4 +1,6 @@
 # Gamers Pros Template
+- Discord: [Gamer Verse Hangout](https://discord.gg/AjE6VMmRJ4)
+
 ## Installation (Can ignore instruction as it has already been setup for you)
 ### GamersForge
 - Open Terminal
