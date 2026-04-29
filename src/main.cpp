@@ -1,20 +1,18 @@
 #include "main.h"
 
-/**
- * A callback function for LLEMU's center button.
- *
- * When this callback is fired, it will toggle line 2 of the LCD text between
- * "I was pressed!" and nothing.
- */
-void on_center_button() {
-	static bool pressed = false;
-	pressed = !pressed;
-	if (pressed) {
-		pros::lcd::set_text(2, "I was pressed!");
-	} else {
-		pros::lcd::clear_line(2);
-	}
-}
+#include "EZ-Template/util.hpp"
+#include "gamers-forge/proslogger.hpp"
+
+#include "liblvgl/display/lv_display.h"
+#include "pros/misc.hpp"
+#include "pros/rtos.hpp"
+
+#include "userapi/configuration.hpp"
+#include "userapi/controls/drive.hpp"z
+#include "userapi/ui/autom/mode_selector.hpp"
+#include "userapi/ui/op_control.hpp"
+
+using namespace devices;
 
 /**
  * Runs initialization code. This occurs as soon as the program is started.
@@ -23,10 +21,18 @@ void on_center_button() {
  * to keep execution time for this mode under a few seconds.
  */
 void initialize() {
-	pros::lcd::initialize();
-	pros::lcd::set_text(1, "Hello PROS User!");
+    using namespace ui::autom;
+	PROSLogger::Manager::setLevel(PROSLogger::LogLevel::DEBUG);
 
-	pros::lcd::register_btn1_cb(on_center_button);
+	pros::delay(500);
+
+	ui::driver::initialize();
+	
+	configuration::drive::initialize();
+	configuration::controls::configure();
+	configuration::autonomous::configure();
+
+    AutoManager::select_autom(AutomMode::NONE, AutomSideColor::NO_COLOR_AND_POSITION);
 }
 
 /**
@@ -36,7 +42,7 @@ void initialize() {
  */
 void disabled() {}
 
-/**
+/** 
  * Runs after initialize(), and before autonomous when connected to the Field
  * Management System or the VEX Competition Switch. This is intended for
  * competition-specific initialization routines, such as an autonomous selector
@@ -45,7 +51,9 @@ void disabled() {}
  * This task will exit when the robot is enabled and autonomous or opcontrol
  * starts.
  */
-void competition_initialize() {}
+void competition_initialize() {
+    lv_screen_load(ui::autom::mode_selector::mode_screen);
+}
 
 /**
  * Runs the user autonomous code. This function will be started in its own task
@@ -58,7 +66,10 @@ void competition_initialize() {}
  * will be stopped. Re-enabling the robot will restart the task, not re-start it
  * from where it left off.
  */
-void autonomous() {}
+void autonomous() {
+    using namespace ui::autom;
+    AutoManager::run_autom();
+}
 
 /**
  * Runs the operator control code. This function will be started in its own task
@@ -74,21 +85,19 @@ void autonomous() {}
  * task, not resume it from where it left off.
  */
 void opcontrol() {
-	pros::Controller master(pros::E_CONTROLLER_MASTER);
-	pros::MotorGroup left_mg({1, -2, 3});    // Creates a motor group with forwards ports 1 & 3 and reversed port 2
-	pros::MotorGroup right_mg({-4, 5, -6});  // Creates a motor group with forwards port 5 and reversed ports 4 & 6
+    lv_screen_load(ui::driver::driver_screen);
 
+	configuration::controls::button_handler.start();
 
-	while (true) {
-		pros::lcd::print(0, "%d %d %d", (pros::lcd::read_buttons() & LCD_BTN_LEFT) >> 2,
-		                 (pros::lcd::read_buttons() & LCD_BTN_CENTER) >> 1,
-		                 (pros::lcd::read_buttons() & LCD_BTN_RIGHT) >> 0);  // Prints status of the emulated screen LCDs
+	chassis.drive_brake_set(MOTOR_BRAKE_COAST);
 
-		// Arcade control scheme
-		int dir = master.get_analog(ANALOG_LEFT_Y);    // Gets amount forward/backward from left joystick
-		int turn = master.get_analog(ANALOG_RIGHT_X);  // Gets the turn left/right from right joystick
-		left_mg.move(dir - turn);                      // Sets left motor voltage
-		right_mg.move(dir + turn);                     // Sets right motor voltage
-		pros::delay(20);                               // Run for 20 ms then update
+    while (true) {
+		if (keybindActions::drive::is_arcade() == true) {
+			chassis.opcontrol_arcade_standard(ez::SPLIT);
+		} else {
+			chassis.opcontrol_tank();
+		}
+
+		pros::delay(ez::util::DELAY_TIME);
 	}
 }
