@@ -44,3 +44,17 @@
 ### LVGL Image Converter
 - [LVGL Image Converter](https://lvgl.io/tools/imageconverter)
 - [Youtube Tutorial](https://youtu.be/TMcAzTsPj2w?si=xsbldqhULFpUovJw)
+
+## Useful Tutorials
+### EZ-Template
+- [Learn to Code with EZ-Template in 15 Minutes | Vex Robotics Programming](https://youtu.be/OqF7kcSSyAE?si=TTSfzAoNvp8HMMDa)
+
+- [(Playlist) PROS + EZ-Template](https://youtube.com/playlist?list=PLxqALDYuCLV4zPVKgEbyPCjqOtSy7eM0l&si=mbYHvVb4X0d7vleN)
+
+### PID Tuning
+- [VEX Autom Tutorial Part 4 - Tuning PID Controllers](https://youtu.be/89Jj4shI0hc?si=KnEm6Icr7bw4gfeM)
+- [VEX Robotics PID Control: An Introduction](https://youtu.be/KMSJviT2jI8?si=0Zdrjy9WgghnE8Km)
+
+### LVGL Image Converter
+- [Displaying images on Vex v5 brain PROS 4.2](https://youtu.be/TMcAzTsPj2w?si=BCVMdKGNe3K6Jwp0)
+- [Displaying image on VEX brain with SD card PROS 4](https://youtu.be/opXES7qH_YA?si=MC_8hrDzABczdL0b)
