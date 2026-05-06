@@ -62,3 +62,9 @@
 ### LVGL Image Converter
 - [Displaying images on Vex v5 brain PROS 4.2](https://youtu.be/TMcAzTsPj2w?si=BCVMdKGNe3K6Jwp0)
 - [Displaying image on VEX brain with SD card PROS 4](https://youtu.be/opXES7qH_YA?si=MC_8hrDzABczdL0b)
+
+## Discord Communities
+- [Vex Robotics Competition](https://discord.com/servers/vex-robotics-competition-197777408198180864)
+- [Robolytics](https://discord.com/invite/pzwfAtWXse)
+- [Vex Cad](https://discord.com/invite/BKV3DJm)
+- [robotics is ez](https://discord.com/invite/EHjXBcK2Gy)
